@@ -1,7 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 using namespace std;
+
+// Coprimes printing calculation not functioning perfectly,
+// that's for updating...
 
 void reverse(int arr[], int n){
     reverse(arr,arr+n);
@@ -31,6 +35,7 @@ int euler(int number) {
         return result;
     }
 
+    // TODO: Fix co primes 
     for (int iterator = 2; iterator * iterator <= number; iterator++) {
         if (number % iterator == 0) {
             for (cpiterator = 0; number % iterator == 0; cpiterator++) {
@@ -53,7 +58,7 @@ int euler(int number) {
 
     std::cout << "Coprimes: " << std::endl;
 
-    // Print the coprimes
+    // Print the coprimes 
     for (int vectoriterator = 0; vectoriterator != cpvector.size(); ++vectoriterator) {
         std::cout << vectoriterator + 1 << ": " << cpvector[vectoriterator] << std::endl;
     }
@@ -63,11 +68,16 @@ int euler(int number) {
     return result;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
 
-    std::cout << euler(4) << std::endl;
+    if (argc == 1) {
+        std::cout << "No arguments passed." << std::endl;
+    } else if (argc == 2) {
+       std::cout << euler(std::stoi(argv[1])) << std::endl;
+    } else {
+        std::cout << "Syntax error." << std::endl;
+    }
 
     return 0;
-
 }
 
