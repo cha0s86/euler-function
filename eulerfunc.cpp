@@ -4,9 +4,6 @@
 #include <algorithm>
 using namespace std;
 
-// Coprimes printing calculation not functioning perfectly,
-// that's for updating...
-
 int euler(int number) {
 
     int result = number;
